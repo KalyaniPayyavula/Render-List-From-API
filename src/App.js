@@ -20,9 +20,8 @@ function App() {
   })
   return (
     <div>
-
+      My first project
     </div>
-
   )
 }
 
