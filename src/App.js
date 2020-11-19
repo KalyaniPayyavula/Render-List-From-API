@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
+
 function App() {
+  const apiCall = async () => {
+    try {
+      let response = await fetch("https://reqres.in/api/users?page=1");
+      return response.json();
+    }
+    catch (error) {
+      return error;
+    }
+  }
+  apiCall().then((response) => {
+    let userData = response.data;
+    userData.map((e) => {
+      console.log(e.email)
+    })
+  })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+
     </div>
-  );
+
+  )
 }
 
 export default App;
